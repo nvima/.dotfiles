@@ -191,7 +191,7 @@ for_window [class="dynobase"] move to workspace $ws4
 for_window [class="Steam"] move to workspace $ws6
 for_window [class="vlc"] move to workspace $ws7
 for_window [class="Spotify"] move to workspace $ws8
-for_window [class="Thunderbird"] move to workspace $ws9
+for_window [class="thunderbird"] move to workspace $ws9
 
 # ------------------------------------------
 # CUSTOM KEYS START
