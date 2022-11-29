@@ -111,6 +111,7 @@ local mappingsV = {
     c = { "<cmd>NvimTreeCollapseKeepBuffers<cr><esc>", "X unused Trees" },
     C = { "<cmd>NvimTreeCollapse<cr><esc>", "X All Trees" },
     r = { "<cmd>LspRestart<cr><esc>", "Lsp Restart" },
+    g = { "<cmd>! cd %:p:h && go get . && go mod tidy<cr><cmd>LspRestart<cr>", "Get Go Packages" },
   },
 
   G = {
@@ -228,6 +229,7 @@ local mappings = {
     c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "X unused Trees" },
     C = { "<cmd>NvimTreeCollapse<cr>", "X All Trees" },
     r = { "<cmd>LspRestart<cr>", "Lsp Restart" },
+    g = { "<cmd>! cd %:p:h && go get . && go mod tidy<cr><cmd>LspRestart<cr>", "Get Go Packages" },
   },
 
   G = {

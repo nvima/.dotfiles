@@ -199,7 +199,6 @@ for_window [class="thunderbird"] move to workspace $ws9
 exec_always --no-startup-id feh --randomize --bg-scale ~/ansible/wallpaper/*
 exec_always xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
 exec pactl set-default-sink 'alsa_output.pci-0000_2c_00.4.analog-stereo'
-exec firefox
 exec gnome-terminal
 exec compton
 
