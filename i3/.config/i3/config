@@ -201,6 +201,7 @@ exec_always xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --ou
 exec pactl set-default-sink 'alsa_output.pci-0000_2c_00.4.analog-stereo'
 exec gnome-terminal
 exec compton
+exec firefox
 
 hide_edge_borders both
 
