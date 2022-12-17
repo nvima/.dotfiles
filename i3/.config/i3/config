@@ -140,6 +140,17 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
+        colors {
+            # #191724
+                background #191724
+                statusline #ab92cb
+                separator #ab92cb
+                # colorclass       <border> <background> <text>
+                focused_workspace #ab92cb   #ab92cb     #191724
+                active_workspace #ab92cb    #ab92cb     #191724
+                inactive_workspace #191724  #191724     #ab92cb
+                urgent_workspace #f6c177    #f6c177     #21202e
+        }
 }
 
 # Suspend
