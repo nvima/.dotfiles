@@ -15,9 +15,19 @@ lsp.ensure_installed({
     "volar",
     "cssls"
 })
+-- Fix Undefined global 'vim'
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+-- local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -124,15 +134,15 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 require 'lspconfig'.cssls.setup {
-  cmd = { "vscode-css-language-server", "--stdio" },
-  filetype = { "css", "scss", "less", "vue" },
-  settings = {
-    css = {
-      lint = {
-        unknownAtRules = 'ignore',
-      },
+    cmd = { "vscode-css-language-server", "--stdio" },
+    filetype = { "css", "scss", "less", "vue" },
+    settings = {
+        css = {
+            lint = {
+                unknownAtRules = 'ignore',
+            },
+        },
     },
-  },
 }
 
 

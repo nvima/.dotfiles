@@ -5,6 +5,10 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
+    use {
+        'nvima/nvim-translator',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
     use 'wbthomason/packer.nvim'
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "junegunn/vim-easy-align"

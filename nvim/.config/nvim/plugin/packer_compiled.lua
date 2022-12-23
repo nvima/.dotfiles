@@ -155,6 +155,11 @@ _G.packer_plugins = {
     path = "/home/jens/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-translator"] = {
+    loaded = true,
+    path = "/home/jens/.local/share/nvim/site/pack/packer/start/nvim-translator",
+    url = "https://github.com/nvima/nvim-translator"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/jens/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

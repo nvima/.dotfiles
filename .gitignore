@@ -1,3 +1,6 @@
 .idea
 /personal
 /zsh/.profile
+/bin/.local/bin/lib/
+/bin/.local/bin/zig
+
