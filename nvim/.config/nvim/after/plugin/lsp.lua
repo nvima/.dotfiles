@@ -13,7 +13,8 @@ lsp.ensure_installed({
     "tflint",
     "terraformls",
     "volar",
-    "cssls"
+    "cssls",
+    "kotlin_language_server",
 })
 -- Fix Undefined global 'vim'
 lsp.configure('sumneko_lua', {
