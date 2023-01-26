@@ -29,3 +29,4 @@ bin/.local/bin/toco_from_protos
 bin/.local/bin/tqdm
 bin/.local/bin/undill
 bin/.local/bin/wheel
+bin/.local/bin/ldtk
