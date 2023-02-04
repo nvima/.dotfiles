@@ -64,4 +64,6 @@ return require('packer').startup(function(use)
 
     use("github/copilot.vim")
 
+    -- use({ 'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' })
+
 end)

@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="audio,zsh,nvim,tmux,i3,fonts,gtk,bin"
+    STOW_FOLDERS="audio,zsh,nvim,tmux,i3,fonts,gtk,bin,idea"
     #STOW_FOLDERS="bin,i3,netflix,nvim,personal,tmux,uwuntu,xkb,zsh"
 fi
 
