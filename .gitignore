@@ -30,3 +30,9 @@ bin/.local/bin/tqdm
 bin/.local/bin/undill
 bin/.local/bin/wheel
 bin/.local/bin/ldtk
+bin/.local/bin/pygmentize
+bin/.local/bin/chatgpt
+bin/.local/bin/markdown-it
+bin/.local/bin/playwright
+bin/.local/bin/postinstall.sh
+
