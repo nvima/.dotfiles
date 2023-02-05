@@ -1,35 +1,62 @@
 set NERDTree
-""" Map leader to space ---------------------
-let mapleader=" "
-
-map <leader>e :NERDTreeToggle<cr>
-map <leader>f :NERDTreeFind<cr>
-map <leader>y <Action>($Copy)
-map <leader>w :w<cr>
-map <leader>c :q<cr>
-map <leader>gd <Action>(GotoDeclaration)
-
-set ideajoin
+set nooldundo "make undo eq to vim
 set showmode
 set so=5
 set incsearch
 set relativenumber
+set ideajoin
+set idearefactormode=keep
+set commentary
 
-vnoremap J <Action>(MoveLineDown)
-vnoremap K <Action>(MoveLineUp)
+""" Map leader to space ---------------------
+let mapleader=" "
+
+map <leader>e :NERDTreeToggle<cr>
+map <leader>f <Action>(GotoFile)
+map <leader>y <Action>($Copy)
+map <leader>w :w<cr>
+nmap <leader>c <action>(CloseEditor)
+nmap <C-l> <action>(NextTab)
+nmap <C-S-l> <action>(PreviousTab)
+
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>pm <Action>(TogglePresentationMode)
+
+nmap <leader>lj <Action>(GotoNextError)
+nmap <leader>lk <Action>(GotoPreviousError)
+nmap <leader>lf <Action>(ReformatCode)
+
+
+" nmap <leader><C-h> :action SetHarpoon1<cr>
+" nmap <leader><C-t> :action SetHarpoon2<cr>
+" nmap <leader><C-n> :action SetHarpoon3<cr>
+" nmap <leader><C-s> :action SetHarpoon4<cr>
+
+" map <C-s> :action CopilotApplyComplitions<cr>
+
+nmap <C-h> :action GotoHarpoon1<cr>
+nmap <C-t> :action GotoHarpoon2<cr>
+nmap <C-n> :action GotoHarpoon3<cr>
+" nmap <C-s> :action GotoHarpoon4<cr>
+
+nmap <C-e> :action ShowHarpoon<cr>
+nmap <leader>a :action AddToHarpoon<cr>
+
+
+vnoremap <S-j> :action MoveLineDown<cr>
+vnoremap <S-k> :action MoveLineUp<cr>
+nmap <S-k> <Action>(QuickJavaDoc)
+
+
+
 
 vnoremap < <gv
 vnoremap > >gv
 
-" vnoremap J :m '>+1<CR>gv=gv<cr>
-" vnoremap K :m '<-2<CR>gv=gv<cr>
-
-
-"vnoremap J :m '>+1<CR>gv<cr>
-"vnoremap K :m '<-2<CR>gv<cr>
-
 map <leader>+ <Action>(EditorIncreaseFontSizeGlobal)
 map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
+
+
 """ Plugins  --------------------------------
 " set surround
 " set multiple-cursors
