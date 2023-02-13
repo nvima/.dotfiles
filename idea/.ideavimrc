@@ -94,10 +94,8 @@ nmap <C-e> :action ShowHarpoon<cr>
 nmap <leader>a :action AddToHarpoon<cr>
 
 
-
-map <leader>+ <Action>(EditorIncreaseFontSizeGlobal)
-map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
-
+map <C-Right> <Action>(EditorIncreaseFontSizeGlobal)
+map <C-Left> <Action>(EditorDecreaseFontSizeGlobal)
 
 " File navigation
 " map <leader>ff <Action>(GotoFile)
@@ -149,7 +147,7 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 "
 
 " https://goudham.me/my-second-brain/my-ideavim-config.html
-
+" https://gist.github.com/dewaka/ef947e52767bf453eaf77c852051eb7e
 
 " --- Actions ---
 " $Copy                                              <C-C> <C-Ins>
