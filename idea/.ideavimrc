@@ -1,9 +1,10 @@
 set NERDTree
 set nooldundo "make undo eq to vim
 set showmode
-set so=5
+set so=8
 set incsearch
 set relativenumber
+set number
 set ideajoin
 set idearefactormode=keep
 set commentary
@@ -12,49 +13,99 @@ set commentary
 let mapleader=" "
 
 map <leader>e :NERDTreeToggle<cr>
+" map <leader>e :NERDTreeFocus<CR>
+
 map <leader>f <Action>(GotoFile)
 map <leader>y <Action>($Copy)
 map <leader>w :w<cr>
 nmap <leader>c <action>(CloseEditor)
+
+" Switch between tabs
 nmap <C-l> <action>(NextTab)
 nmap <C-S-l> <action>(PreviousTab)
 
-map <leader>gd <Action>(GotoDeclaration)
+" ZenMode
 map <leader>pm <Action>(TogglePresentationMode)
-
-nmap <leader>lj <Action>(GotoNextError)
-nmap <leader>lk <Action>(GotoPreviousError)
-nmap <leader>lf <Action>(ReformatCode)
-
-nmap <leader><C-h> :action SetHarpoon1<cr>
-nmap <leader><C-t> :action SetHarpoon2<cr>
-nmap <leader><C-n> :action SetHarpoon3<cr>
-nmap <leader><C-s> :action SetHarpoon4<cr>
-
-" map <C-s> :action CopilotApplyComplitions<cr>
-
-nmap <C-h> :action GotoHarpoon1<cr>
-nmap <C-t> :action GotoHarpoon2<cr>
-nmap <C-n> :action GotoHarpoon3<cr>
-nmap <C-s> :action GotoHarpoon4<cr>
-
-nmap <C-e> :action ShowHarpoon<cr>
-nmap <leader>a :action AddToHarpoon<cr>
-
-
-vnoremap <S-j> :action MoveLineDown<cr>
-vnoremap <S-k> :action MoveLineUp<cr>
-nmap <S-k> <Action>(QuickJavaDoc)
-
-
-
 
 vnoremap < <gv
 vnoremap > >gv
 
+vnoremap <S-j> :action MoveLineDown<cr>
+vnoremap <S-k> :action MoveLineUp<cr>
+
+nmap <S-k> <Action>(QuickJavaDoc)
+map <leader>lj <Action>(GotoNextError)
+map <leader>lk <Action>(GotoPreviousError)
+map <leader>lo <Action>(OptimizeImports)
+map <leader>lf <Action>(ReformatCode)
+map <leader>lr <Action>(RenameElement)
+map <leader>la <Action>(ShowIntentionActions)
+map gd <Action>(GotoDeclaration)
+map gt <Action>(GotoTest)
+map gs <Action>(GotoSuperMethod)
+map gI <Action>(GotoImplementation)
+
+" Debugging stuffs
+" map <leader>dt <Action>(ToggleLineBreakpoint)
+" map <leader>db <Action>(ViewBreakpoints)
+" map <leader>ds <Action>(ContextDebug)
+" map <leader>df <Action>(ChooseDebugConfiguration)
+" map <leader>rs <Action>(ContextRun)
+" map <leader>rc <Action>(RunClass)
+" map <leader>rf <Action>(ChooseRunConfiguration)
+
+" Use Vim Shortcuts not Intellij Shortcuts
+sethandler <C-s> a:vim
+imap <C-s> <Action>(copilot.applyInlays)
+sethandler <C-S-s> a:vim
+imap <C-S-s> <Action>(copilot.cycleNextInlays)
+
+" Center buffer when navigating
+nmap <C-u> <C-u>zz
+nmap <C-d> <C-d>zz
+nmap n nzzzv
+nmap N Nzzzv
+
+" set lookupkeys seems broken, maybe works in a future version
+" use profile keymap instead, EditorDown and EditorUp to Tab and Shift+Tab
+" sethandler <Tab> a:vim
+" sethandler <S-Tab> a:vim
+" imap <Tab> <Action>(EditorDown)
+" imap <S-Tab> <Action>(EditorUp)
+
+
+" Workaround for unifying navigation history:
+" https://youtrack.jetbrains.com/issue/VIM-44/Unify-navigation-history-between-ideavim-and-idea"
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+" Open Terminal with leader + t
+" Close it with Shift+Esc
+" Esc to keep it open and go back to editor
+" Ctrl+D to exit Terminal
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+" Harpoon Plugin
+nmap <C-h> :action GotoHarpoon1<cr>
+nmap <C-t> :action GotoHarpoon2<cr>
+nmap <C-n> :action GotoHarpoon3<cr>
+nmap <C-s> :action GotoHarpoon4<cr>
+nmap <C-e> :action ShowHarpoon<cr>
+nmap <leader>a :action AddToHarpoon<cr>
+
+
+
 map <leader>+ <Action>(EditorIncreaseFontSizeGlobal)
 map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 
+
+" File navigation
+" map <leader>ff <Action>(GotoFile)
+" map <leader>fg <Action>(FindInPath)
+" map <leader>fm <Action>(MainMenu)
+" map <leader>fr <Action>(RecentFiles)
+" map <leader>fp <Action>(ManageRecentProjects)
+" map <leader><leader> <Action>(SearchEverywhere)
 
 """ Plugins  --------------------------------
 " set surround
@@ -95,7 +146,12 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " map <leader>b <Action>(ToggleLineBreakpoint)
 " map <leader>o <Action>(FileStructurePopup)
 "
-"--- Actions ---
+"
+
+" https://goudham.me/my-second-brain/my-ideavim-config.html
+
+
+" --- Actions ---
 " $Copy                                              <C-C> <C-Ins>
 " $Cut                                               <C-X> <S-Del>
 " $Delete                                            <Del>
@@ -103,7 +159,7 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " $Paste                                             <C-V> <S-Ins>
 " $Redo                                              <C-S-Z> <A-S-BS>
 " $SearchWeb
-" $SelectAll                                         <C-A>
+" $SelectAll
 " $Undo                                              <C-Z> <A-BS>
 " About
 " Actions.ActionsPlugin.GenerateToString
@@ -112,8 +168,8 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " ActivateCommitToolWindow                           <A-0>
 " ActivateDebugToolWindow                            <A-5>
 " ActivateDependenciesToolWindow
-" Activatedocumentation.v2ToolWindow
 " ActivateFindToolWindow                             <A-3>
+" Activategithub.copilotToolWindowToolWindow
 " ActivateGradleToolWindow
 " ActivateHierarchyToolWindow
 " ActivateLearnToolWindow
@@ -544,6 +600,24 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " ConvertToUnixLineSeparators
 " ConvertToWebp
 " ConvertToWindowsLineSeparators
+" copilot.applyInlays                                <C-S>
+" copilot.cycleNextInlays                            <C-S-S>
+" copilot.cyclePrevInlays                            <A-[> <C-,>
+" copilot.disableCopilot                             <A-C-S-O>
+" copilot.disableCopilotFile
+" copilot.disposeInlays                              <Esc>
+" copilot.enableCopilot                              <A-C-S-O>
+" copilot.inlayContextMenu
+" copilot.loginGitHub
+" copilot.logoutGitHub
+" copilot.openCopilot
+" copilot.openStatus
+" copilot.requestCompletions                         <A-\>
+" copilot.statusBarErrorPopup
+" copilot.statusBarPopup
+" copilot.statusBarRestartPopup
+" copilot.testException
+" copilot.toolsActionGroup
 " Copy.Paste.Special
 " CopyAbsolutePath                                   <C-S-C>
 " CopyAsPlainText
@@ -1955,7 +2029,7 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " org.intellij.plugins.markdown.ui.actions.styling.ToggleBoldAction <C-B>
 " org.intellij.plugins.markdown.ui.actions.styling.ToggleCodeSpanAction <C-S-C>
 " org.intellij.plugins.markdown.ui.actions.styling.ToggleItalicAction <C-I>
-" org.intellij.plugins.markdown.ui.actions.styling.ToggleStrikethroughAction <C-S-S>
+" org.intellij.plugins.markdown.ui.actions.styling.ToggleStrikethroughAction
 " org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateGetterAction
 " org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateGetterSetterAction
 " org.jetbrains.plugins.groovy.actions.generate.accessors.GroovyGenerateSetterAction
@@ -2260,7 +2334,7 @@ map <leader>- <Action>(EditorDecreaseFontSizeGlobal)
 " RunToolbarWidgetCustomizableActionGroup
 " RunWithDropDown
 " SafeDelete                                         <A-Del>
-" SaveAll                                            <C-S>
+" SaveAll
 " SaveAsNewFormat
 " SaveAsTemplate
 " SaveDocument
