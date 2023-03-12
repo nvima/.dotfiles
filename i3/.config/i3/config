@@ -218,6 +218,7 @@ exec pactl set-default-sink 'alsa_output.usb-HP__Inc_HyperX_Cloud_II_Wireless_0-
 exec gnome-terminal
 exec compton
 exec chromium
+exec setxkbmap de
 
 hide_edge_borders both
 
