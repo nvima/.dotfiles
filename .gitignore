@@ -36,4 +36,5 @@ bin/.local/bin/markdown-it
 bin/.local/bin/playwright
 bin/.local/bin/postinstall.sh
 bin/.local/bin/kotlin-language-server.bak
+bin/.local/bin/wg-server
 
