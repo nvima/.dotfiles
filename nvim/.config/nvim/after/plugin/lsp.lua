@@ -5,7 +5,6 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    -- 'sumneko_lua',
     'rust_analyzer',
     "jsonls",
     "gopls",
@@ -15,16 +14,6 @@ lsp.ensure_installed({
     "volar",
     "cssls",
     "kotlin_language_server",
-})
--- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
 })
 
 local cmp = require('cmp')

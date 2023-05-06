@@ -200,6 +200,7 @@ bindsym $mod+Right move workspace to output right
 for_window [class="firefox"] move to workspace $ws1
 for_window [class="chromium"] move to workspace $ws1
 for_window [class="Gnome-terminal"] move to workspace $ws2
+for_window [class="konsole"] move to workspace $ws2
 for_window [class="Postman"] move to workspace $ws3
 for_window [class="dynobase"] move to workspace $ws4
 for_window [class="Steam"] move to workspace $ws6
@@ -216,7 +217,9 @@ exec_always xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --ou
 # exec pactl set-default-sink 'alsa_output.pci-0000_2c_00.4.analog-stereo'
 exec pactl set-default-sink 'alsa_output.usb-HP__Inc_HyperX_Cloud_II_Wireless_0-00.analog-stereo'
 exec gnome-terminal
-exec compton
+exec konsole
+# exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
+exec --no-startup-id compton --fade-in-step=1 --fade-out-step=1 --fade-delta=0
 exec chromium
 exec setxkbmap de
 
