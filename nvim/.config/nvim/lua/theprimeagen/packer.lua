@@ -21,8 +21,9 @@ return require('packer').startup(function(use)
 
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim'
+        -- , tag = '0.1.0',
+                                   , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
@@ -41,7 +42,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
 
     use {
-        'VonHeikemen/lsp-zero.nvim',
+        'VonHeikemen/lsp-zero.nvim', branch = "v2.x",
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },

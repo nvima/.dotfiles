@@ -118,9 +118,13 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 complete -C '/usr/bin/aws_completer' aws
 
-export PATH="$PATH:$HOME/kotlin-language-server/server/build/install/server/bin"
+# export PATH="$PATH:$HOME/kotlin-language-server/server/build/install/server/bin"
 
-export CC=clang
+export PATH=$PATH:$HOME/go/bin
+
+# export CC=clang
+export CC=clang-14
+export CXX=clang++-14
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
